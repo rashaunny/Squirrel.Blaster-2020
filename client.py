@@ -56,33 +56,43 @@ def handle_input():
         print('Invalid input')
         return
     
-    # device_state.update(new_state)
-    data = json.dumps(new_state)
-    sio.emit('syncedState_change', data)
-    print('[Client] Sent update to server: ', data)
+    alert_server(
+        'syncedState_change',
+        new_state,
+    )
 
+def alert_server(header, data):
+    data_str = json.dumps(data)
+    sio.emit('syncedState_change', data_str)
 
 def look_for_squirrel():
     confidence = get_squirrel_confidence()
-    data = json.dumps({'squirrelConfidence': confidence})
-    sio.emit('syncedState_change', data)
+    alert_server(
+        'syncedState_change',
+        {'squirrelConfidence': confidence},
+    )
 
     if confidence > 60:
         print('IT\'S A SQUIRREL!')
-        data = json.dumps({'alertTime': time.time()})
-        sio.emit('squirrelAlert', data)
         alert_led.blink()
+        alert_server(
+            'syncedState_change',
+            {'squirrelAlert': time.time()},
+        )
     else:
         print('Nope.')
         alert_led.off()
-
+        alert_server(
+            'syncedState_change',
+            {'squirrelAlert': False},
+        )
 
 def task():
     while True:
         # handle_input()
         print('Looking for squirrel...')
         look_for_squirrel()
-        time.sleep(5)
+        time.sleep(1)
 
 if __name__ == '__main__':
     sio.connect('http://138.197.142.143')
