@@ -1,3 +1,5 @@
+#/usr/bin/env python3
+
 from picamera import PiCamera
 import time
 
@@ -26,6 +28,4 @@ def look_for_squirrel(camera, i):
 if __name__ == "__main__":
     camera = init_camera()
 
-    for i in range(10):
-        look_for_squirrel(camera, i)
-        time.sleep(2)
+    look_for_squirrel(camera, 0)
