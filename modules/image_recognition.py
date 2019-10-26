@@ -26,7 +26,8 @@ def find_squirrel_confidence(image_file):
     # Process each label
     for label in response['Labels']:
         print('({:.2f}%) {}'.format(label['Confidence'], label['Name']))
-        if label['Name'] == 'Squirrel':
+        # if label['Name'] == 'Squirrel':
+        if label['Name'] in ('Squirrel', 'Rodent', 'Animal'):
             return label['Confidence']
     return 0
 
