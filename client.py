@@ -61,7 +61,7 @@ def handle_input():
 
 
 def look_for_squirrel():
-    if camera.find_squirrel():
+    if find_squirrel():
         print('IT\'S A SQUIRREL!')
         sio.emit('alert', 1)
     else:
