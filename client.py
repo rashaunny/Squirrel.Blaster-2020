@@ -17,7 +17,8 @@ syncedState = {}
 @sio.event
 def connect():
     print('connection established')
-    sio.start_background_task(task)
+    sio.start_background_task(task_find_squirrel)
+    sio.start_background_task(task_fire)
 
 @sio.event
 def syncedState_update(data):
@@ -54,19 +55,17 @@ def look_for_squirrel():
             {'squirrelAlert': False},
         )
 
-def task():
+def task_fire():
     while True:
-        print('Looking for squirrel...')
-        look_for_squirrel()
-
-        # Turn water gun on/off
-        a = syncedState.get('buttonSquirt')
-        print('a = ', type(a), a)
         if syncedState.get('buttonSquirt'):
             fire_led.on()
         else:
             fire_led.off()
-        
+
+def task_find_squirrel():
+    while True:
+        print('Looking for squirrel...')
+        look_for_squirrel()       
         time.sleep(1)
 
 if __name__ == '__main__':
