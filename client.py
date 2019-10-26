@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
+from gpiozero import LED
 import socketio
 import json
 import time
 
 from modules.camera import get_squirrel_confidence
 
+alert_led = LED(4)
 sio = socketio.Client()
 
 syncedState = {}
@@ -65,12 +67,14 @@ def look_for_squirrel():
     data = json.dumps({'squirrelConfidence': confidence})
     sio.emit('syncedState_change', data)
 
-    if confidence > 0:
+    if confidence > 60:
         print('IT\'S A SQUIRREL!')
         data = json.dumps({'alertTime': time.time()})
         sio.emit('squirrelAlert', data)
+        alert_led.blink()
     else:
         print('Nope.')
+        alert_led.off()
 
 
 def task():
