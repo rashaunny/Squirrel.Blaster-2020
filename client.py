@@ -7,7 +7,9 @@ import time
 
 from modules.camera import get_squirrel_confidence
 
-alert_led = LED(4)
+alert_led = LED(4) # green
+fire_led = LED(24) # red
+
 sio = socketio.Client()
 
 syncedState = {}
@@ -21,45 +23,11 @@ def connect():
 def syncedState_update(data):
     data = json.loads(data)
     syncedState.update(data)
-    print('syncedState_update:', syncedState)
+    # print('syncedState_update:', syncedState)
 
 @sio.event
 def disconnect():
     print('disconnected from server')
-
-def handle_input():
-    line = input().strip()
-    # sio.emit('my_message', line)
-
-    new_state = {}
-
-    if line == 'w':
-        new_state['buttonUp'] = True
-    elif line == 's':
-        new_state['buttonDown'] = True
-    elif line == 'a':
-        new_state['buttonLeft'] = True
-    elif line == 'd':
-        new_state['buttonRight'] = True
-    elif line == 'f':
-        new_state['buttonSquirt'] = True
-    elif line == 'x':
-        new_state['weightSensor'] = True
-    elif line == 'r':
-        new_state['buttonUp'] = False
-        new_state['buttonDown'] = False
-        new_state['buttonLeft'] = False
-        new_state['buttonRight'] = False
-        new_state['buttonSquirt'] = False
-        new_state['weightSensor'] = False
-    else:
-        print('Invalid input')
-        return
-    
-    alert_server(
-        'syncedState_change',
-        new_state,
-    )
 
 def alert_server(header, data):
     data_str = json.dumps(data)
@@ -71,7 +39,6 @@ def look_for_squirrel():
         'syncedState_change',
         {'squirrelConfidence': confidence},
     )
-
     if confidence > 60:
         print('IT\'S A SQUIRREL!')
         alert_led.blink()
@@ -89,9 +56,15 @@ def look_for_squirrel():
 
 def task():
     while True:
-        # handle_input()
         print('Looking for squirrel...')
         look_for_squirrel()
+
+        # Turn water gun on/off
+        if syncedState.get('buttonSquirt'):
+            fire_led.on()
+        else:
+            fire_led.off()
+        
         time.sleep(1)
 
 if __name__ == '__main__':
