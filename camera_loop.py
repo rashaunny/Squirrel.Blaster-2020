@@ -15,7 +15,7 @@ def look_for_squirrel(camera, i):
     camera.capture(filename)
     confidence = find_squirrel_confidence(filename)
 
-    print(i)
+    print(i, filename)
     if confidence > 0:
         print('It\'s a squirrel ({:.2f}%)!'.format(confidence))
     else:
@@ -28,4 +28,4 @@ if __name__ == "__main__":
 
     for i in range(10):
         look_for_squirrel(camera, i)
-        sleep(2)
+        time.sleep(2)
