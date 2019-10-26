@@ -60,6 +60,8 @@ def task():
         look_for_squirrel()
 
         # Turn water gun on/off
+        a = syncedState.get('buttonSquirt')
+        print('a = ', type(a), a)
         if syncedState.get('buttonSquirt'):
             fire_led.on()
         else:
