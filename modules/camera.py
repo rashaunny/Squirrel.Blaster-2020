@@ -25,5 +25,8 @@ CAMERA.start_preview()
 time.sleep(2)
 
 # Delete old camera pictures
-shutil.rmtree(PICTURE_DIR)
+try:
+    shutil.rmtree(PICTURE_DIR)
+except FileNotFoundError:
+    pass
 os.mkdir(PICTURE_DIR, exist_ok=True)
