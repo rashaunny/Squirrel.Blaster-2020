@@ -13,7 +13,7 @@ def init_camera():
 CAMERA = init_camera()
 picture_id = 0
 
-def find_squirrel_confidence():
+def get_squirrel_confidence():
     global picture_id
 
     filename = 'tmp-{}.jpg'.format(picture_id)
