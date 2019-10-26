@@ -14,6 +14,8 @@ CAMERA = init_camera()
 picture_id = 0
 
 def find_squirrel():
+    global picture_id
+    
     filename = 'tmp-{}.jpg'.format(picture_id)
     picture_id += 1
     
