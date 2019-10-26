@@ -4,7 +4,7 @@ import socketio
 import json
 import time
 
-from modules.camera import find_squirrel
+from modules.camera import find_squirrel_confidence
 
 sio = socketio.Client()
 
@@ -61,9 +61,14 @@ def handle_input():
 
 
 def look_for_squirrel():
-    if find_squirrel():
+    confidence = find_squirrel_confidence()
+    data = json.dumps({'squirrelConfidence': confidence})
+    sio.emit('syncedState_change', data)
+
+    if confidence > 0:
         print('IT\'S A SQUIRREL!')
-        sio.emit('alert', 1)
+        data = json.dumps({'alertTime': time.time()})
+        sio.emit('squirrelAlert', data)
     else:
         print('Nope.')
 

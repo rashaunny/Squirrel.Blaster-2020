@@ -13,7 +13,7 @@ def init_camera():
 CAMERA = init_camera()
 picture_id = 0
 
-def find_squirrel():
+def find_squirrel_confidence():
     global picture_id
 
     filename = 'tmp-{}.jpg'.format(picture_id)
@@ -21,4 +21,4 @@ def find_squirrel():
     
     CAMERA.capture(filename)
     confidence = find_squirrel_confidence(filename)
-    return confidence > 0
+    return confidence
