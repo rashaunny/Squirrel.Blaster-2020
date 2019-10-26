@@ -29,4 +29,4 @@ try:
     shutil.rmtree(PICTURE_DIR)
 except FileNotFoundError:
     pass
-os.mkdirs(PICTURE_DIR, exist_ok=True)
+os.makedirs(PICTURE_DIR, exist_ok=True)
