@@ -60,7 +60,7 @@ def handle_input():
     print('[Client] Sent update to server: ', data)
 
 
-def look_or_squirrel():
+def look_for_squirrel():
     if camera.find_squirrel():
         print('IT\'S A SQUIRREL!')
         sio.emit('alert', 1)
