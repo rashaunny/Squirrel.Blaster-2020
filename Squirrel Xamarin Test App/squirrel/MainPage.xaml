@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="squirrel.MainPage">
+    <ScrollView>
+        <StackLayout>
+            <!-- Place new controls here -->
+
+
+            <Label Text="Squirrel Blaster 2020"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+            <Image Source="livefeed.png" />
+            <ImageButton Source="rightarrow.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Clicked="OnImageButtonClicked" />
+
+            <ImageButton Source="leftarrow.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Clicked="OnImageButtonClicked2" />
+
+            <Label x:Name="label"
+               Text="0 ImageButton clicks"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+           
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

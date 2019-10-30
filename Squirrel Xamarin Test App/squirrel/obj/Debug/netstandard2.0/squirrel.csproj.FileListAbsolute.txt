@@ -1,0 +1,13 @@
+C:\Users\pyasg\source\repos\squirrel\squirrel\bin\Debug\netstandard2.0\squirrel.deps.json
+C:\Users\pyasg\source\repos\squirrel\squirrel\bin\Debug\netstandard2.0\squirrel.dll
+C:\Users\pyasg\source\repos\squirrel\squirrel\bin\Debug\netstandard2.0\ref\squirrel.dll
+C:\Users\pyasg\source\repos\squirrel\squirrel\bin\Debug\netstandard2.0\squirrel.pdb
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\squirrel.csprojAssemblyReference.cache
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\squirrel.AssemblyInfoInputs.cache
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\squirrel.AssemblyInfo.cs
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\squirrel.dll
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\ref\squirrel.dll
+C:\Users\pyasg\source\repos\squirrel\squirrel\obj\Debug\netstandard2.0\squirrel.pdb

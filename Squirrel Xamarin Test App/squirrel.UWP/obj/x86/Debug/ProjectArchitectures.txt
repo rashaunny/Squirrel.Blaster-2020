@@ -1,0 +1,1 @@
+C:\Users\pyasg\source\repos\squirrel\squirrel.UWP\squirrel.UWP.csproj;x86
