@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  </head>
+  <body>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>"use strict";
+      ///////////////////////////////////////////
+      #INCLUDE c1--top.js
+      ///////////////////////////////////////////
+      #INCLUDE c2--ui.js
+      ///////////////////////////////////////////
+      #INCLUDE c3--changes.js
+      ///////////////////////////////////////////
+      #INCLUDE c4--sio.js
+      ///////////////////////////////////////////
+    </script>
+
+  </body>
+</html>
